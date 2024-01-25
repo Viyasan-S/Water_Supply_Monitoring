@@ -1,6 +1,4 @@
-# Additional Advanced Innovative Features Page
 
-# Import necessary libraries
 import streamlit as st
 import folium
 import pandas as pd
@@ -8,11 +6,7 @@ import plotly.express as px
 import random
 from datetime import datetime, timedelta
 
-# Load sample data or connect to a database for real data
-# Additional data may include water quality parameters, maintenance history, etc.
 
-# Function to simulate additional sensor data
-# Function to simulate additional sensor data
 def simulate_additional_sensor_data():
     data = {
         "Timestamp": [],
