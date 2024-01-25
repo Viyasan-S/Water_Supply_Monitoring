@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e2bbcc60175826564c47a94740e975dd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e2bbcc60175826564c47a94740e975dd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e2bbcc60175826564c47a94740e975dd = L.map(
+                "map_e2bbcc60175826564c47a94740e975dd",
+                {
+                    center: [11.0178, 76.9565],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a5c60c06355c0980ab8ab969aa43eadc = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_a5c60c06355c0980ab8ab969aa43eadc.addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var marker_f2804797ceb572d08af0fb3fbec13d9f = L.marker(
+                [11.0178, 76.9565],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_dd06886e75e0bfc1c9eef3b3c9017af8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f2804797ceb572d08af0fb3fbec13d9f.setIcon(icon_dd06886e75e0bfc1c9eef3b3c9017af8);
+        
+    
+        var popup_ae8498094b785e86c29ccc1ab508a083 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_64b8cea9da434707c60ffdfb59987e43 = $(`<div id="html_64b8cea9da434707c60ffdfb59987e43" style="width: 100.0%; height: 100.0%;">Coimbatore</div>`)[0];
+                popup_ae8498094b785e86c29ccc1ab508a083.setContent(html_64b8cea9da434707c60ffdfb59987e43);
+            
+        
+
+        marker_f2804797ceb572d08af0fb3fbec13d9f.bindPopup(popup_ae8498094b785e86c29ccc1ab508a083)
+        ;
+
+        
+    
+    
+            var marker_61dfa71109db94e3bcf661910a712e36 = L.marker(
+                [11.0205, 76.9665],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_e4ad7df25c3d5ebf4d12b6a80c021aa8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_61dfa71109db94e3bcf661910a712e36.setIcon(icon_e4ad7df25c3d5ebf4d12b6a80c021aa8);
+        
+    
+        var popup_8806e1972f51b1aeb0b02bc8187116fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_20993dd59353b4511ef0fba6fc587aff = $(`<div id="html_20993dd59353b4511ef0fba6fc587aff" style="width: 100.0%; height: 100.0%;">Peelamedu</div>`)[0];
+                popup_8806e1972f51b1aeb0b02bc8187116fa.setContent(html_20993dd59353b4511ef0fba6fc587aff);
+            
+        
+
+        marker_61dfa71109db94e3bcf661910a712e36.bindPopup(popup_8806e1972f51b1aeb0b02bc8187116fa)
+        ;
+
+        
+    
+    
+            var marker_acba6b5987da5d249748de7f85ceaeaf = L.marker(
+                [11.016, 76.978],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_85156fc87e0954d05e414ee78ef61ffc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_acba6b5987da5d249748de7f85ceaeaf.setIcon(icon_85156fc87e0954d05e414ee78ef61ffc);
+        
+    
+        var popup_cfee21b4e5fba81d4667c163d8847771 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aefb89cb32634b5328d696ef28e8b2cf = $(`<div id="html_aefb89cb32634b5328d696ef28e8b2cf" style="width: 100.0%; height: 100.0%;">Gandhipuram</div>`)[0];
+                popup_cfee21b4e5fba81d4667c163d8847771.setContent(html_aefb89cb32634b5328d696ef28e8b2cf);
+            
+        
+
+        marker_acba6b5987da5d249748de7f85ceaeaf.bindPopup(popup_cfee21b4e5fba81d4667c163d8847771)
+        ;
+
+        
+    
+    
+            var poly_line_f9c02b17e0df203f174e6f6839565c55 = L.polyline(
+                [[11.0178, 76.9565], [11.0205, 76.9665]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var poly_line_bb5538904939f09d543d524e2ffa7796 = L.polyline(
+                [[11.0205, 76.9665], [11.016, 76.978]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var poly_line_8d978cff96fbb513e5e8e285bc9654b2 = L.polyline(
+                [[11.016, 76.978], [11.0178, 76.9565]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var marker_70c102055ba8edf63f398e5ad596f885 = L.marker(
+                [11.0168, 76.9558],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_d959dee7e860a413984ba19129cc0a0a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_70c102055ba8edf63f398e5ad596f885.setIcon(icon_d959dee7e860a413984ba19129cc0a0a);
+        
+    
+        var popup_eeae042e454abc45849be3e15c8147cd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd9a4c00e5d846cb0d158f9487faa844 = $(`<div id="html_fd9a4c00e5d846cb0d158f9487faa844" style="width: 100.0%; height: 100.0%;">Coimbatore Tank</div>`)[0];
+                popup_eeae042e454abc45849be3e15c8147cd.setContent(html_fd9a4c00e5d846cb0d158f9487faa844);
+            
+        
+
+        marker_70c102055ba8edf63f398e5ad596f885.bindPopup(popup_eeae042e454abc45849be3e15c8147cd)
+        ;
+
+        
+    
+    
+            var marker_814a44b30dea67577aef00211ac1209a = L.marker(
+                [11.0205, 76.9665],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_ddb212ee243592600900c2ab087974fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_814a44b30dea67577aef00211ac1209a.setIcon(icon_ddb212ee243592600900c2ab087974fe);
+        
+    
+        var popup_4b1fbc6ca15f6793483c51a029546c5d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_952931aab94e2344f7d33570f7321f2b = $(`<div id="html_952931aab94e2344f7d33570f7321f2b" style="width: 100.0%; height: 100.0%;">Peelamedu Tank</div>`)[0];
+                popup_4b1fbc6ca15f6793483c51a029546c5d.setContent(html_952931aab94e2344f7d33570f7321f2b);
+            
+        
+
+        marker_814a44b30dea67577aef00211ac1209a.bindPopup(popup_4b1fbc6ca15f6793483c51a029546c5d)
+        ;
+
+        
+    
+    
+            var marker_52283e7a66b7bf97c88e1e4aeba61286 = L.marker(
+                [11.016, 76.978],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_1fa42beb431773e16d3d418d34b7be3c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_52283e7a66b7bf97c88e1e4aeba61286.setIcon(icon_1fa42beb431773e16d3d418d34b7be3c);
+        
+    
+        var popup_0a3b5421a3ff77e3c330d7f1ff9427aa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_81d423307b147880ed1aa5f4641c1184 = $(`<div id="html_81d423307b147880ed1aa5f4641c1184" style="width: 100.0%; height: 100.0%;">Gandhipuram Tank</div>`)[0];
+                popup_0a3b5421a3ff77e3c330d7f1ff9427aa.setContent(html_81d423307b147880ed1aa5f4641c1184);
+            
+        
+
+        marker_52283e7a66b7bf97c88e1e4aeba61286.bindPopup(popup_0a3b5421a3ff77e3c330d7f1ff9427aa)
+        ;
+
+        
+    
+    
+            var marker_8e190b76ed6edaa079de42de05045584 = L.marker(
+                [11.018, 76.958],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_4ba44e49a23a723d51659e19708864d0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cog", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_8e190b76ed6edaa079de42de05045584.setIcon(icon_4ba44e49a23a723d51659e19708864d0);
+        
+    
+        var popup_85c0373e3ae756fc960900d0608bbcff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61dc394b78791bd630bf0b51051814f1 = $(`<div id="html_61dc394b78791bd630bf0b51051814f1" style="width: 100.0%; height: 100.0%;">FlowSensor</div>`)[0];
+                popup_85c0373e3ae756fc960900d0608bbcff.setContent(html_61dc394b78791bd630bf0b51051814f1);
+            
+        
+
+        marker_8e190b76ed6edaa079de42de05045584.bindPopup(popup_85c0373e3ae756fc960900d0608bbcff)
+        ;
+
+        
+    
+    
+            var marker_8509a8afe1f7a767238669381639daaa = L.marker(
+                [11.02, 76.968],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_dfa32d0d2b707803dc24b036f852ed0c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cog", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_8509a8afe1f7a767238669381639daaa.setIcon(icon_dfa32d0d2b707803dc24b036f852ed0c);
+        
+    
+        var popup_7e701891aacae1b2a385acabe9264fe7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d7ea359feae4ae1c16f9a1f651815223 = $(`<div id="html_d7ea359feae4ae1c16f9a1f651815223" style="width: 100.0%; height: 100.0%;">MoistureSensor</div>`)[0];
+                popup_7e701891aacae1b2a385acabe9264fe7.setContent(html_d7ea359feae4ae1c16f9a1f651815223);
+            
+        
+
+        marker_8509a8afe1f7a767238669381639daaa.bindPopup(popup_7e701891aacae1b2a385acabe9264fe7)
+        ;
+
+        
+    
+    
+            var marker_90801b3ee61a9ce161ac42fc22dbdf57 = L.marker(
+                [11.017, 76.974],
+                {}
+            ).addTo(map_e2bbcc60175826564c47a94740e975dd);
+        
+    
+            var icon_68ed23ffc8f7e87ac68ae4535d3873a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cog", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_90801b3ee61a9ce161ac42fc22dbdf57.setIcon(icon_68ed23ffc8f7e87ac68ae4535d3873a0);
+        
+    
+        var popup_de9a5663abc655f05224d910f920e9a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_379e10cea53568279aed78a9f8329c2a = $(`<div id="html_379e10cea53568279aed78a9f8329c2a" style="width: 100.0%; height: 100.0%;">PressureSensor</div>`)[0];
+                popup_de9a5663abc655f05224d910f920e9a7.setContent(html_379e10cea53568279aed78a9f8329c2a);
+            
+        
+
+        marker_90801b3ee61a9ce161ac42fc22dbdf57.bindPopup(popup_de9a5663abc655f05224d910f920e9a7)
+        ;
+
+        
+    
+</script>
+</html>
