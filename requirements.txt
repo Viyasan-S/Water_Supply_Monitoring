@@ -4,3 +4,5 @@ streamlit==1.25.0
 streamlit_folium==0.18.0
 plotly
 Pyrebase4==4.7.1
+firebase-admin==6.2.0
+streamlit-authenticator
