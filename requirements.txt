@@ -2,4 +2,4 @@ folium==0.15.1
 pandas==2.0.3
 streamlit==1.25.0
 streamlit_folium==0.18.0
-plotly==0.1.18
+plotly
