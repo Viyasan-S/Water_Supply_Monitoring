@@ -101,7 +101,7 @@ if st.session_state.user:
         "Gandhipuram": [11.016, 76.978],
         "Kaundampalyaam": [11.0123, 76.9456],
     }
-   middle_pipe_coords=[
+    middle_pipe_coords=[
         (cities["Coimbatore"][0] + cities["Kaundampalyaam"][0]) / 2,
         (cities["Coimbatore"][1] + cities["Kaundampalyaam"][1]) /2,
     ]
