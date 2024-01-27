@@ -83,24 +83,39 @@ if st.session_state.user:
         "Coimbatore": [11.0178, 76.9565],
         "Peelamedu": [11.0205, 76.9665],
         "Gandhipuram": [11.016, 76.978],
+        "Kaundampalyaam": [11.0123, 76.9456],
+    
     }
 
     pipes = [
         {"start": "Coimbatore", "end": "Peelamedu"},
         {"start": "Peelamedu", "end": "Gandhipuram"},
         {"start": "Gandhipuram", "end": "Coimbatore"},
+        {"start": "Coimbatore", "end": "Kaundampalyaam"},
+        {"start": "Kaundampalyaam", "end": "Gandhipuram"},
     ]
 
     tanks = {
         "Coimbatore": [11.0168, 76.9558],
         "Peelamedu": [11.0205, 76.9665],
         "Gandhipuram": [11.016, 76.978],
+        "Kaundampalyaam": [11.0123, 76.9456],
     }
+   middle_pipe_coords=[
+        (cities["Coimbatore"][0] + cities["Kaundampalyaam"][0]) / 2,
+        (cities["Coimbatore"][1] + cities["Kaundampalyaam"][1]) /2,
+    ]
+    middle_pipe_coords1=[
+        (cities["Gandhipuram"][0] + cities["Kaundampalyaam"][0]) / 2,
+        (cities["Gandhipuram"][1] + cities["Kaundampalyaam"][1]) /2,
+    ]
 
     sensors = {
         "FlowSensor": [11.018, 76.958],
         "MoistureSensor": [11.020, 76.968],
         "PressureSensor": [11.017, 76.974],
+        "FlowSensorB": middle_pipe_coords,
+        "MoistureSensorB": middle_pipe_coords1,
     }
 
     # Sample data for water flow simulation
@@ -108,12 +123,14 @@ if st.session_state.user:
         "Tank A": [11.0168, 76.9558],
         "Tank B": [11.0205, 76.9665],
         "Tank C": [11.016, 76.978],
+        "Tank D": [11.014, 76.960],
     }
 
     houses_flow = {
         "House 1": [11.022, 76.960],
         "House 2": [11.018, 76.968],
         "House 3": [11.014, 76.974],
+        "House 4": [11.010, 76.954],
     }
 
     # Simulate sensor data
