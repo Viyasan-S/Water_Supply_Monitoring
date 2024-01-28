@@ -39,6 +39,10 @@ def simulate_predictive_maintenance_data():
             failure_probability += 0.1 * data["Temperature"][-1] / 40
             failure_probability += 0.15 * data["Vibration"][-1] / 10
             failure_probability += 0.2 * data["Pressure"][-1] / 20
+        elif equipment == "Machine D":
+            failure_probability += 0.1 * data["Temperature"][-1] / 40
+            failure_probability += 0.15 * data["Vibration"][-1] / 10
+            failure_probability += 0.2 * data["Pressure"][-1] / 20
 
         # Introduce randomness
         failure_probability += random.uniform(-0.05, 0.05)
