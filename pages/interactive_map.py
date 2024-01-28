@@ -11,10 +11,11 @@ historical_data = {
         datetime(2022, 1, 1, 12, 0, 0),
         datetime(2022, 1, 1, 12, 30, 0),
         datetime(2022, 1, 1, 13, 0, 0),
+        datetime(2022, 1, 1, 14, 0, 0),
     ],
-    "latitude": [11.0178, 11.0205, 11.016],
-    "longitude": [76.9565, 76.9665, 76.978],
-    "value": [15, 25, 20],
+    "latitude": [11.0178, 11.0205, 11.016,11.0123],
+    "longitude": [76.9565, 76.9665, 76.978,76.9456],
+    "value": [15, 25, 20,25],
 }
 
 df = pd.DataFrame(historical_data)
