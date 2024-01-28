@@ -19,7 +19,7 @@ def simulate_predictive_maintenance_data():
         now = datetime.now()
         timestamp = now - timedelta(days=100 - _)
         data["Timestamp"].append(timestamp)
-        equipment = random.choice(["Machine A", "Machine B", "Machine C","Machine D"])
+        equipment = random.choice(["Tank A", "Tank B", "Tank C","Tank D"])
         data["Equipment"].append(equipment)
         data["Temperature"].append(random.uniform(20, 40))
         data["Vibration"].append(random.uniform(0, 10))
@@ -27,19 +27,19 @@ def simulate_predictive_maintenance_data():
 
         # Simulate failure probability based on conditions
         failure_probability = 0.1  # Base failure probability
-        if equipment == "Machine A":
+        if equipment == "Tank A":
             failure_probability += 0.2 * data["Temperature"][-1] / 40
             failure_probability += 0.1 * data["Vibration"][-1] / 10
             failure_probability += 0.15 * data["Pressure"][-1] / 20
-        elif equipment == "Machine B":
+        elif equipment == "Tank B":
             failure_probability += 0.15 * data["Temperature"][-1] / 40
             failure_probability += 0.2 * data["Vibration"][-1] / 10
             failure_probability += 0.1 * data["Pressure"][-1] / 20
-        elif equipment == "Machine C":
+        elif equipment == "Tank C":
             failure_probability += 0.1 * data["Temperature"][-1] / 40
             failure_probability += 0.15 * data["Vibration"][-1] / 10
             failure_probability += 0.2 * data["Pressure"][-1] / 20
-        elif equipment == "Machine D":
+        elif equipment == "Tank D":
             failure_probability += 0.1 * data["Temperature"][-1] / 40
             failure_probability += 0.15 * data["Vibration"][-1] / 10
             failure_probability += 0.2 * data["Pressure"][-1] / 20
