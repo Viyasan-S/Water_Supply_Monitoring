@@ -19,7 +19,7 @@ def simulate_predictive_maintenance_data():
         now = datetime.now()
         timestamp = now - timedelta(days=100 - _)
         data["Timestamp"].append(timestamp)
-        equipment = random.choice(["Machine A", "Machine B", "Machine C"])
+        equipment = random.choice(["Machine A", "Machine B", "Machine C","Machine D"])
         data["Equipment"].append(equipment)
         data["Temperature"].append(random.uniform(20, 40))
         data["Vibration"].append(random.uniform(0, 10))
