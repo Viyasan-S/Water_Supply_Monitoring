@@ -12,6 +12,7 @@ def simulate_additional_sensor_data():
         "Timestamp": [],
         "WaterTemperature": [],
         "ChlorineLevel": [],
+        "CalciumLevel": [],
         "WaterTurbidity": [],
     }
 
@@ -25,6 +26,7 @@ def simulate_additional_sensor_data():
     # Generate random data for each parameter
     data["WaterTemperature"].extend([random.uniform(10, 30) for _ in range(num_data_points)])
     data["ChlorineLevel"].extend([random.uniform(0, 5) for _ in range(num_data_points)])
+    data["CalciumLevel"].extend([random.uniform(0, 5) for _ in range(num_data_points)])
     data["WaterTurbidity"].extend([random.uniform(0, 10) for _ in range(num_data_points)])
 
     return pd.DataFrame(data)
@@ -53,6 +55,15 @@ def visualize_water_quality_data(water_quality_data):
         labels={"ChlorineLevel": "Chlorine Level (ppm)"},
     )
     st.plotly_chart(fig_chlorine)
+    # Plot water calcium
+    fig_calcium= px.line(
+        water_quality_data,
+        x="Timestamp",
+        y="CalciumLevel",
+        title="Calcium Level Variation",
+        labels={"CalciumLevel": "Calcium Level (ppm)"},
+    )
+    st.plotly_chart(fig_calcium)
 
     # Plot water turbidity
     fig_turbidity = px.line(
