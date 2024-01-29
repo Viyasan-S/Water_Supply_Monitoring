@@ -5,6 +5,12 @@ import random
 from datetime import datetime, timedelta
 import plotly.express as px
 import pyrebase
+import geopandas as gpd  # Import GeoPandas for handling GeoJSON data
+
+# Load Coimbatore GeoJSON file
+coimbatore_geojson_path = "coimbatore.geojson"
+coimbatore_gdf = gpd.read_file(coimbatore_geojson_path)
+
 # Streamlit Configuration
 st.set_page_config(
     page_title="Water Supply Network Tool",
@@ -84,7 +90,6 @@ if st.session_state.user:
         "Peelamedu": [11.0205, 76.9665],
         "Gandhipuram": [11.016, 76.978],
         "Kaundampalyaam": [11.0123, 76.9456],
-    
     }
 
     pipes = [
@@ -154,11 +159,11 @@ if st.session_state.user:
             data["Timestamp"].extend(timestamps)
             data["Leakage"].extend([random.choice([0, 1]) for _ in range(5)])
             data["Breakage"].extend([random.choice([0, 1]) for _ in range(5)])
-            data["Pressure"].extend([random.uniform(5, 15) for _ in range(5)])
-            data["WaterQuality"].extend([random.uniform(0, 1) for _ in range(5)])
-            data["FlowSensor"].extend([random.uniform(0, 1) for _ in range(5)])
-            data["MoistureSensor"].extend([random.uniform(0, 1) for _ in range(5)])
-            data["PressureSensor"].extend([random.uniform(5, 15) for _ in range(5)])
+            data["Pressure"].extend([random.choice([0, 1]) for _ in range(5)])
+            data["WaterQuality"].extend([random.choice([0, 1]) for _ in range(5)])
+            data["FlowSensor"].extend([random.choice([0, 1]) for _ in range(5)])
+            data["MoistureSensor"].extend([random.choice([0, 1]) for _ in range(5)])
+            data["PressureSensor"].extend([random.choice([0, 1]) for _ in range(5)])
 
         return pd.DataFrame(data)
 
@@ -179,8 +184,14 @@ if st.session_state.user:
         return pd.DataFrame(data)
 
     # Create water supply network map
-    def create_water_supply_map(cities, pipes, tanks, sensors, sensor_data):
+    def create_water_supply_map(cities, pipes, tanks, sensors, sensor_data, coimbatore_gdf):
         m = folium.Map(location=cities["Coimbatore"], zoom_start=12)
+
+        # Plot Coimbatore GeoJSON
+        folium.GeoJson(
+            coimbatore_gdf,
+            name="geojson"
+        ).add_to(m)
 
         # Plot cities
         for city, coordinates in cities.items():
@@ -238,7 +249,7 @@ if st.session_state.user:
             st.dataframe(sensor_data)
 
             # Create the water supply map using the sample data and sensor data
-            water_supply_map = create_water_supply_map(cities, pipes, tanks, sensors, sensor_data)
+            water_supply_map = create_water_supply_map(cities, pipes, tanks, sensors, sensor_data, coimbatore_gdf)
 
             # Save the map to an HTML file
             tmp_file = "water_supply_map.html"
@@ -254,19 +265,31 @@ if st.session_state.user:
                 st.subheader("Map Layers")
                 st.markdown("Toggle the checkboxes to show/hide specific map layers.")
                 # Add checkboxes for layers (Cities, Pipes, Tanks, Sensors)
+                show_geojson = st.checkbox("Coimbatore GeoJSON", True)
                 show_cities = st.checkbox("Cities", True)
                 show_pipes = st.checkbox("Pipes", True)
                 show_tanks = st.checkbox("Tanks", True)
                 show_sensors = st.checkbox("Sensors", True)
-
                 # Redraw the map based on user selections
                 m = folium.Map(location=cities["Coimbatore"], zoom_start=12)
+
+                if show_geojson:
+                   folium.GeoJson(
+                       coimbatore_gdf,
+                       name="geojson"
+                   ).add_to(m)
+                   
                 if show_cities:
                     for city, coordinates in cities.items():
                         color = "red" if any(
-                            sensor_data[(sensor_data["City"] == city) & (sensor_data["Leakage"] == 1)].index
+                            sensor_data[
+                                (sensor_data["City"] == city) & (sensor_data["Leakage"] == 1)
+                            ].index
                         ) else "blue"
-                        folium.Marker(location=coordinates, popup=city, icon=folium.Icon(color=color)).add_to(m)
+                        folium.Marker(
+                            location=coordinates, popup=city, icon=folium.Icon(color=color)
+                        ).add_to(m)
+
                 if show_pipes:
                     for pipe in pipes:
                         start_coords = cities[pipe["start"]]
@@ -281,29 +304,34 @@ if st.session_state.user:
                             ].index
                         ) else "blue"
                         line = folium.PolyLine(
-                            [start_coords, end_coords], color=pipe_color, weight=2, opacity=0.7
+                            [start_coords, end_coords],
+                            color=pipe_color,
+                            weight=2,
+                            opacity=0.7,
                         )
                         m.add_child(line)
+
                 if show_tanks:
                     for tank, coordinates in tanks.items():
                         folium.Marker(
-                            location=coordinates, popup=f"{tank} Tank", icon=folium.Icon(color="red")
+                            location=coordinates,
+                            popup=f"{tank} Tank",
+                            icon=folium.Icon(color="red"),
                         ).add_to(m)
+
                 if show_sensors:
                     for sensor, coordinates in sensors.items():
                         icon = folium.Icon(color="orange", icon="cog")
                         folium.Marker(
-                            location=coordinates,
-                            popup=f"{sensor}",
-                            icon=icon,
+                            location=coordinates, popup=f"{sensor}", icon=icon
                         ).add_to(m)
 
                 # Save the updated map to an HTML file
-                tmp_file = "water_supply_map_updated.html"
-                m.save(tmp_file)
+                tmp_file_updated = "water_supply_map_updated.html"
+                m.save(tmp_file_updated)
 
-                # Display the updated map
-                with open(tmp_file, "r", encoding="utf-8") as f:
+                # Display the updated HTML map
+                with open(tmp_file_updated, "r", encoding="utf-8") as f:
                     st.components.v1.html(f.read(), height=700, scrolling=True)
 
         elif app_mode == "Water Flow Simulation":
@@ -311,11 +339,11 @@ if st.session_state.user:
             water_flow_data = simulate_water_flow_data()
 
             # Display the simulated water flow data
-            st.subheader("Simulated Water Flow Data")
+            st.subheader("Water Flow Simulation Data")
             st.dataframe(water_flow_data)
 
-            # Create a bar chart to visualize water flow
-            fig = px.bar(
+            # Create water flow visualization using Plotly Express
+            fig = px.line(
                 water_flow_data,
                 x="Source",
                 y="Flow",
@@ -324,17 +352,9 @@ if st.session_state.user:
                 title="Water Flow Simulation",
             )
 
-            # Customize chart layout
-            fig.update_layout(
-                xaxis_title="Source",
-                yaxis_title="Water Flow",
-                barmode="group",
-                height=500,
-                width=800,
-            )
-
-            # Display the chart
+            # Display the Plotly Express chart
             st.plotly_chart(fig)
 
+    # Run the main function
     if __name__ == "__main__":
         main()
