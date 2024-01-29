@@ -6,3 +6,4 @@ plotly
 Pyrebase4==4.7.1
 firebase-admin==6.2.0
 streamlit-authenticator
+geopandas==0.14.2
