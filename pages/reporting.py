@@ -18,7 +18,7 @@ sensor_data = {
 
 # Email configuration
 email_sender = "innovatioki123@gmail.com"
-email_receiver = "2k21cse161@kiot.ac.in"
+email_receiver = "2k21cse048@kiot.ac.in"
 email_password = "gdhdvfvpzawdgmim"
 email_subject = "Pipeline Alert!"
 
